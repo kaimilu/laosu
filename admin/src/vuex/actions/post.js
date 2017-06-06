@@ -2,7 +2,7 @@
 /*  file   : post
 /*  author : loasu
 /*  date   : 2017-6-2 9:45:9
-/*  last   : 2017-6-2 9:48:52
+/*  last   : 2017-6-2 17:9:33
 */
 /**
  * Actions ==> https://vuex.vuejs.org/zh-cn/actions.html
@@ -11,3 +11,4 @@
  *  Action 可以包含任意异步操作。
  */
 import * as types from '../mutation_types'
+import service from '../../services/posts/index'

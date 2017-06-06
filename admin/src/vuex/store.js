@@ -2,13 +2,13 @@
 /*  file   : store
 /*  author : loasu
 /*  date   : 2017-6-2 9:21:2
-/*  last   : 2017-6-2 9:29:19
+/*  last   : 2017-6-2 14:5:7
 */
 
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import modules from './modules/'
+import modules from './modules'
 
 Vue.use(Vuex)
 Vue.config.debug = true
