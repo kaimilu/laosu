@@ -31,15 +31,20 @@
   // }]
 
   const routes = [{
-    path: '/',
-    name: 'homePage',
-    component: Index
-  }, {
-    path: '/passport',
-    name: 'passort',
-    component: Login,
-    authPage: true
-  }]
+      path: '/',
+      name: 'homePage',
+      component: Index
+    }, {
+      path: '/passport',
+      name: 'passort',
+      component: Login,
+      authPage: true
+    }, // catch all redirect
+    {
+      path: '*',
+      redirect: '/'
+    }
+  ]
 
 
 

@@ -24,27 +24,27 @@ Vue.config.productionTip = false
 // router.start(adminComponent, '#app')
 
 
-router.beforeEach((to, from, next) => {
-  console.log(to)
-  if (true !== to.authPage) {
-    if (null === store.state.token.token) {
-      redirect('login')
-    } else {
-      next()
-    }
-  } else {
-    // login
-    if (null === store.state.token.token) {
-      next()
-    } else {
-      if (undefined !== from.path) {
-        redirect(from.path)
-      } else {
-        redirect('index')
-      }
-    }
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   console.log(to)
+//   if (true !== to.authPage) {
+//     if (null === store.state.token.token) {
+//       redirect('login')
+//     } else {
+//       next()
+//     }
+//   } else {
+//     // login
+//     if (null === store.state.token.token) {
+//       next()
+//     } else {
+//       if (undefined !== from.path) {
+//         redirect(from.path)
+//       } else {
+//         redirect('index')
+//       }
+//     }
+//   }
+// })
 
 /* eslint-disable no-new */
 new Vue({
