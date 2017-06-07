@@ -2,7 +2,7 @@
 /*  file   : index
 /*  author : loasu
 /*  date   : 2017-6-2 17:11:42
-/*  last   : 2017-6-2 17:40:36
+/*  last   : 2017-6-3 9:11:18
 */
 import api from '../index'
 export default {
@@ -22,5 +22,10 @@ export default {
     return api.patch('drafts/' + id, {
       content
     });
+  },
+  modifyDraftTitle(id, title) {
+    return api.patch('drafts/' + id, {
+      title
+    })
   }
 }

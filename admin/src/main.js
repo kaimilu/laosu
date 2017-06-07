@@ -2,12 +2,12 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 
 import Vue from 'vue'
-import adminComponent from './Admin'
+import App from './App.vue'
 import router from './router'
-import MessageBox from 'vue-msgbox'
+
+import store from './vuex/store'
 
 
-window.alert = MessageBox // 重写alert
 
 Vue.config.productionTip = false
 
@@ -22,12 +22,37 @@ Vue.config.productionTip = false
  *
  */
 // router.start(adminComponent, '#app')
+
+
+router.beforeEach((to, from, next) => {
+  console.log(to)
+  if (true !== to.authPage) {
+    if (null === store.state.token.token) {
+      redirect('login')
+    } else {
+      next()
+    }
+  } else {
+    // login
+    if (null === store.state.token.token) {
+      next()
+    } else {
+      if (undefined !== from.path) {
+        redirect(from.path)
+      } else {
+        redirect('index')
+      }
+    }
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  template: '<adminComponent/>',
+  store,
+  template: '<App/>',
   components: {
-    adminComponent
+    App
   }
 })
