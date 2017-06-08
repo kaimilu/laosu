@@ -38,7 +38,9 @@
       path: '/passport',
       name: 'passort',
       component: Login,
-      authPage: true
+      meta: {
+        requiresAuth: true
+      }
     }, // catch all redirect
     {
       path: '*',

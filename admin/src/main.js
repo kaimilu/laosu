@@ -22,7 +22,39 @@ Vue.config.productionTip = false
  *
  */
 // router.start(adminComponent, '#app')
+/**
+ * http://blog.csdn.net/sinat_17775997/article/details/68941078
+ */
+router.beforeEach((to, from, next) => {
+  if (!to.matched.some(record => record.meta.requiresAuth)) {
 
+    // 非登录页面
+    if (null === store.state.token.token) {
+      console.log('没登录')
+      next({
+        path: '/passport'
+      })
+    } else {
+      next()
+    }
+  } else {
+    // 登录页面
+    if (null === store.state.token.token) {
+      // console.log('没登录')
+      next()
+    } else {
+      if (undefined !== from.path) {
+        next({
+          path: from.path
+        })
+      } else {
+        next({
+          path: '/'
+        })
+      }
+    }
+  }
+})
 
 // router.beforeEach((to, from, next) => {
 //   console.log(to)
