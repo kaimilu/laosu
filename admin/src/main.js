@@ -25,6 +25,8 @@ Vue.config.productionTip = false
 /**
  * http://blog.csdn.net/sinat_17775997/article/details/68941078
  */
+
+
 router.beforeEach((to, from, next) => {
   if (!to.matched.some(record => record.meta.requiresAuth)) {
 
@@ -56,27 +58,7 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-// router.beforeEach((to, from, next) => {
-//   console.log(to)
-//   if (true !== to.authPage) {
-//     if (null === store.state.token.token) {
-//       redirect('login')
-//     } else {
-//       next()
-//     }
-//   } else {
-//     // login
-//     if (null === store.state.token.token) {
-//       next()
-//     } else {
-//       if (undefined !== from.path) {
-//         redirect(from.path)
-//       } else {
-//         redirect('index')
-//       }
-//     }
-//   }
-// })
+
 
 /* eslint-disable no-new */
 new Vue({
